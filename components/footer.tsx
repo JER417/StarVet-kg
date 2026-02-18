@@ -29,7 +29,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="#inicio" className="flex items-center gap-2 mb-4">
-              <StarVetLogo className="h-9 w-9 text-background" />
+              <StarVetLogo className="h-9 w-9" />
               <span className="text-xl font-bold text-background">StarVet</span>
             </Link>
             <p className="text-background/60 text-sm leading-relaxed max-w-sm">
