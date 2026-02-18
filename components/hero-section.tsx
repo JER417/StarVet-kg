@@ -56,20 +56,6 @@ export function HeroSection() {
                 <Link href="#servicios">Conoce nuestros servicios</Link>
               </Button>
             </div>
-
-            {/* Stats */}
-            <div className="mt-12 grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0">
-              {[
-                { value: "50+", label: "Clinicas atendidas" },
-                { value: "98%", label: "Satisfaccion" },
-                { value: "3x", label: "Crecimiento promedio" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center lg:text-left">
-                  <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-primary-foreground/60 mt-1">{stat.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right image */}
