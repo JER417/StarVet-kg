@@ -77,7 +77,7 @@ export function HeroSection() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary-foreground/10">
               <Image
                 src="/images/hero-vet.jpg"
-                alt="Veterinaria moderna con tecnologia digital"
+                alt="Veterinaria sonriendo con un cachorro schnauzer en una clinica moderna"
                 width={600}
                 height={500}
                 className="object-cover w-full h-[500px]"
