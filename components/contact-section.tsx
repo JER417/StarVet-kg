@@ -7,13 +7,36 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Send, Mail, Phone, MapPin } from "lucide-react"
 
+const WHATSAPP_NUMBER = "528114131469"
+
 export function ContactSection() {
-  const [submitted, setSubmitted] = useState(false)
+  const [name, setName] = useState("")
+  const [clinic, setClinic] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [message, setMessage] = useState("")
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
+
+    const text = [
+      `*Nuevo mensaje desde StarVet Web*`,
+      ``,
+      `*Nombre:* ${name}`,
+      `*Clinica:* ${clinic}`,
+      `*Email:* ${email}`,
+      phone ? `*Telefono:* ${phone}` : null,
+      ``,
+      `*Mensaje:*`,
+      message,
+    ]
+      .filter(Boolean)
+      .join("\n")
+
+    const encodedText = encodeURIComponent(text)
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer")
   }
 
   return (
@@ -47,8 +70,15 @@ export function ContactSection() {
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground">Telefono</p>
-                  <p className="text-sm text-muted-foreground">+52 (55) 1234 5678</p>
+                  <p className="text-sm font-medium text-foreground">WhatsApp</p>
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    +52 811 413 1469
+                  </a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -57,7 +87,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-foreground">Ubicacion</p>
-                  <p className="text-sm text-muted-foreground">Ciudad de Mexico, Mexico</p>
+                  <p className="text-sm text-muted-foreground">Monterrey, Nuevo Leon, Mexico</p>
                 </div>
               </div>
             </div>
@@ -65,53 +95,66 @@ export function ContactSection() {
 
           {/* Right form */}
           <div className="bg-card rounded-2xl p-8 shadow-lg border border-border">
-            {submitted ? (
-              <div className="flex flex-col items-center justify-center h-full text-center py-12">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
-                  <Send className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-card-foreground">
-                  {"Mensaje enviado"}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Nos pondremos en contacto contigo pronto.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Nombre</Label>
-                    <Input id="name" placeholder="Tu nombre" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="clinic">Nombre de tu clinica</Label>
-                    <Input id="clinic" placeholder="Tu veterinaria" required />
-                  </div>
-                </div>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid sm:grid-cols-2 gap-5">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="correo@ejemplo.com" required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Telefono</Label>
-                  <Input id="phone" type="tel" placeholder="+52 (55) 1234 5678" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">{"Como podemos ayudarte?"}</Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Cuentanos sobre tu veterinaria y tus objetivos..."
-                    rows={4}
+                  <Label htmlFor="name">Nombre</Label>
+                  <Input
+                    id="name"
+                    placeholder="Tu nombre"
                     required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
-                <Button type="submit" className="w-full" size="lg">
-                  Enviar mensaje
-                  <Send className="ml-2 h-4 w-4" />
-                </Button>
-              </form>
-            )}
+                <div className="space-y-2">
+                  <Label htmlFor="clinic">Nombre de tu clinica</Label>
+                  <Input
+                    id="clinic"
+                    placeholder="Tu veterinaria"
+                    required
+                    value={clinic}
+                    onChange={(e) => setClinic(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="correo@ejemplo.com"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="phone">Telefono</Label>
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="+52 (811) 123 4567"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="message">{"Como podemos ayudarte?"}</Label>
+                <Textarea
+                  id="message"
+                  placeholder="Cuentanos sobre tu veterinaria y tus objetivos..."
+                  rows={4}
+                  required
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+              </div>
+              <Button type="submit" className="w-full" size="lg">
+                Enviar por WhatsApp
+                <Send className="ml-2 h-4 w-4" />
+              </Button>
+            </form>
           </div>
         </div>
       </div>
