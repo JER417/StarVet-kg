@@ -33,7 +33,7 @@ export function Footer() {
               <span className="text-xl font-bold text-background">StarVet</span>
             </Link>
             <p className="text-background/60 text-sm leading-relaxed max-w-sm">
-              Consultora digital especializada en automatizacion y marketing estrategico para veterinarias que buscan crecer y modernizarse.
+              Consultora digital especializada en automatización y marketing estratégico para veterinarias que buscan crecer y modernizarse.
             </p>
           </div>
 
@@ -65,10 +65,10 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <Link href="#" className="text-xs text-background/40 hover:text-background/70 transition-colors">
-              Politica de Privacidad
+              Política de Privacidad
             </Link>
             <Link href="#" className="text-xs text-background/40 hover:text-background/70 transition-colors">
-              Terminos de Servicio
+              Términos de Servicio
             </Link>
           </div>
         </div>

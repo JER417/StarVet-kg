@@ -4,8 +4,8 @@ import { CheckCircle2 } from "lucide-react"
 const highlights = [
   "Especializados en el sector veterinario",
   "Equipo multidisciplinario de expertos",
-  "Soluciones tecnologicas personalizadas",
-  "Acompanamiento continuo y soporte dedicado",
+  "Soluciones tecnológicas personalizadas",
+  "Acompañamiento continuo y soporte dedicado",
   "Resultados medibles y transparentes",
 ]
 
@@ -35,10 +35,10 @@ export function AboutSection() {
               Sobre Nosotros
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance">
-              Gestionamos tu clinica, impulsamos tu exito
+              Gestionamos tu clínica, impulsamos tu éxito
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              En StarVet entendemos los desafios unicos del sector veterinario. Nuestro equipo combina experiencia en tecnologia, marketing y conocimiento del sector para ofrecer soluciones que realmente funcionan.
+              En StarVet entendemos los desafíos únicos del sector veterinario. Nuestro equipo combina experiencia en tecnología, marketing y conocimiento del sector para ofrecer soluciones que realmente funcionan.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Creemos que cada veterinaria merece las mejores herramientas digitales para crecer y brindar un mejor servicio a sus pacientes y clientes.

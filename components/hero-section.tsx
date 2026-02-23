@@ -33,7 +33,7 @@ export function HeroSection() {
             </h1>
 
             <p className="mt-5 sm:mt-6 text-base sm:text-lg text-primary-foreground/75 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Somos una consultora digital especializada en automatizacion y marketing estrategico para veterinarias que buscan crecer y modernizarse.
+              Somos una consultora digital especializada en automatización y marketing estratégico para veterinarias que buscan crecer y modernizarse.
             </p>
 
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
@@ -63,7 +63,7 @@ export function HeroSection() {
             <div className="relative mx-auto w-56 h-56 sm:w-72 sm:h-72 lg:w-full lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-primary-foreground/10">
               <Image
                 src="/images/hero-vet.jpg"
-                alt="Veterinaria sonriendo con un cachorro schnauzer en una clinica moderna"
+                alt="Veterinaria sonriendo con un cachorro schnauzer en una clínica moderna"
                 fill
                 className="object-cover"
                 priority
@@ -77,8 +77,8 @@ export function HeroSection() {
                   <Star className="h-5 w-5 text-primary fill-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-card-foreground">Gestionamos tu clinica</p>
-                  <p className="text-xs text-muted-foreground">Impulsamos tu exito</p>
+                  <p className="text-sm font-semibold text-card-foreground">Gestionamos tu clínica</p>
+                  <p className="text-xs text-muted-foreground">Impulsamos tu éxito</p>
                 </div>
               </div>
             </div>

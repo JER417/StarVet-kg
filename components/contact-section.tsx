@@ -14,7 +14,7 @@ export function ContactSection() {
           {"Hablemos del futuro de tu veterinaria"}
         </h2>
         <p className="mt-4 text-muted-foreground leading-relaxed max-w-xl mx-auto">
-          Agenda una consulta gratuita y descubre como podemos ayudar a tu clinica a crecer con soluciones digitales a la medida.
+          Agenda una consulta gratuita y descubre como podemos ayudar a tu clínica a crecer con soluciones digitales a la medida.
         </p>
 
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -27,15 +27,15 @@ export function ContactSection() {
           >
             <Button size="lg" className="w-full sm:w-auto gap-2 text-base px-8">
               <MessageCircle className="h-5 w-5" />
-              Escribenos por WhatsApp
+              Escríbenos por WhatsApp
             </Button>
           </a>
 
           {/* Email */}
-          <a href="mailto:contacto@starvet.com" className="w-full sm:w-auto">
+          <a href="mailto:starvet.contacto@gmail.com" className="w-full sm:w-auto">
             <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2 text-base px-8">
               <Mail className="h-5 w-5" />
-              Envianos un correo
+              Envíanos un correo
             </Button>
           </a>
         </div>
@@ -55,7 +55,7 @@ export function ContactSection() {
           <div className="flex items-center gap-2">
             <Mail className="h-4 w-4 text-primary" />
             <a href="mailto:contacto@starvet.com" className="hover:text-primary transition-colors">
-              contacto@starvet.com
+            starvet.contacto@gmail.com
             </a>
           </div>
         </div>

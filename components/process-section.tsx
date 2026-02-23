@@ -6,26 +6,26 @@ const steps = [
     step: "01",
     title: "Consulta Inicial",
     description:
-      "Analizamos las necesidades de tu veterinaria y definimos objetivos claros para tu transformacion digital.",
+      "Analizamos las necesidades de tu veterinaria y definimos objetivos claros para tu transformación digital.",
   },
   {
     icon: Search,
     step: "02",
     title: "Diagnostico Digital",
     description:
-      "Evaluamos tu presencia digital actual e identificamos las areas de mayor oportunidad para tu clinica.",
+      "Evaluamos tu presencia digital actual e identificamos las areas de mayor oportunidad para tu clínica.",
   },
   {
     icon: Lightbulb,
     step: "03",
     title: "Estrategia Personalizada",
     description:
-      "Disenamos un plan de accion a medida con soluciones especificas para tus metas de crecimiento.",
+      "Diseñamos un plan de acción a medida con soluciones especificas para tus metas de crecimiento.",
   },
   {
     icon: Rocket,
     step: "04",
-    title: "Implementacion y Resultados",
+    title: "Implementación y Resultados",
     description:
       "Ejecutamos la estrategia, medimos resultados y optimizamos continuamente para maximizar tu inversion.",
   },
@@ -44,7 +44,7 @@ export function ProcessSection() {
             {"Como transformamos tu veterinaria"}
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Un proceso claro y comprobado para llevar a tu clinica al siguiente nivel digital.
+            Un proceso claro y comprobado para llevar a tu clínica al siguiente nivel digital.
           </p>
         </div>
 

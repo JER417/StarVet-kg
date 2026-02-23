@@ -22,7 +22,7 @@ export function CtaSection() {
             </h2>
 
             <p className="mt-6 text-lg text-primary-foreground/70 max-w-xl mx-auto leading-relaxed">
-              Da el primer paso hacia la transformacion digital de tu clinica. Agenda una consulta gratuita hoy mismo.
+              Da el primer paso hacia la transformación digital de tu clínica. Agenda una consulta gratuita hoy mismo.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">

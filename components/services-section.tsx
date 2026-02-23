@@ -17,27 +17,27 @@ import { Card, CardContent } from "@/components/ui/card"
 const services = [
   {
     icon: Globe,
-    title: "Creacion de Paginas Web",
+    title: "Creación de Paginas Web",
     description:
-      "Disenamos y desarrollamos sitios web modernos, responsivos y optimizados para que tu veterinaria destaque en linea.",
+      "Diseñamos y desarrollamos sitios web modernos, responsivos y optimizados para que tu veterinaria destaque en linea.",
   },
   {
     icon: Code,
-    title: "Creacion de Software Dedicado",
+    title: "Creación de Software Dedicado",
     description:
-      "Desarrollamos soluciones de software a la medida para gestionar citas, historiales clinicos y mas.",
+      "Desarrollamos soluciones de software a la medida para gestionar citas, historiales clínicos y mas.",
   },
   {
     icon: Cog,
-    title: "Automatizacion de Procesos",
+    title: "Automatización de Procesos",
     description:
-      "Optimiza tu operacion diaria con automatizaciones inteligentes que ahorran tiempo y reducen errores.",
+      "Optimiza tu operación diaria con automatizaciones inteligentes que ahorran tiempo y reducen errores.",
   },
   {
     icon: Monitor,
     title: "Software a Medida",
     description:
-      "Creamos herramientas personalizadas que se adaptan perfectamente a las necesidades de tu clinica.",
+      "Creamos herramientas personalizadas que se adaptan perfectamente a las necesidades de tu clínica.",
   },
   {
     icon: BarChart3,
@@ -47,7 +47,7 @@ const services = [
   },
   {
     icon: Palette,
-    title: "Diseno de Publicidad",
+    title: "Diseño de Publicidad",
     description:
       "Creamos piezas publicitarias impactantes que comunican el valor de tus servicios veterinarios.",
   },
@@ -59,9 +59,9 @@ const services = [
   },
   {
     icon: Sparkles,
-    title: "Creacion de Marca",
+    title: "Creación de Marca",
     description:
-      "Desarrollamos tu identidad de marca completa: logo, paleta de colores, tipografia y guia de estilo.",
+      "Desarrollamos tu identidad de marca completa: logo, paleta de colores, tipografía y guía de estilo.",
   },
 ]
 
@@ -80,7 +80,7 @@ export function ServicesSection() {
             Todo lo que tu veterinaria necesita para crecer
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Ofrecemos soluciones integrales de tecnologia y marketing disenadas exclusivamente para clinicas veterinarias.
+            Ofrecemos soluciones integrales de tecnología y marketing diseñadas exclusivamente para clínicas veterinarias.
           </p>
         </div>
 
