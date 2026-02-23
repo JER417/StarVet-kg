@@ -19,24 +19,24 @@ export function HeroSection() {
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-16 sm:py-32">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left order-2 lg:order-1">
             <div className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 px-4 py-1.5 text-sm text-primary-foreground/90 mb-6 backdrop-blur-sm">
               <Star className="h-3.5 w-3.5 fill-current" />
               <span>Consultora Digital para Veterinarias</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-primary-foreground leading-[1.1]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-primary-foreground leading-[1.1]">
               <span className="text-balance">{"Impulsa el crecimiento de tu veterinaria"}</span>
             </h1>
 
-            <p className="mt-6 text-lg text-primary-foreground/75 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="mt-5 sm:mt-6 text-base sm:text-lg text-primary-foreground/75 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               Somos una consultora digital especializada en automatizacion y marketing estrategico para veterinarias que buscan crecer y modernizarse.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
               <Button
                 asChild
                 size="lg"
@@ -58,21 +58,20 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right image */}
-          <div className="relative hidden lg:block">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary-foreground/10">
+          {/* Image - visible on all sizes */}
+          <div className="relative order-1 lg:order-2">
+            <div className="relative mx-auto w-56 h-56 sm:w-72 sm:h-72 lg:w-full lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-primary-foreground/10">
               <Image
                 src="/images/hero-vet.jpg"
                 alt="Veterinaria sonriendo con un cachorro schnauzer en una clinica moderna"
-                width={600}
-                height={500}
-                className="object-cover w-full h-[500px]"
+                fill
+                className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-primary/20" />
+              <div className="absolute inset-0 bg-primary/10" />
             </div>
-            {/* Floating card */}
-            <div className="absolute -bottom-6 -left-6 bg-card rounded-xl p-4 shadow-xl border border-border">
+            {/* Floating card - hidden on small mobile, visible from sm up */}
+            <div className="hidden sm:block absolute -bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-bottom-6 lg:-left-6 bg-card rounded-xl p-4 shadow-xl border border-border">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
                   <Star className="h-5 w-5 text-primary fill-primary" />
