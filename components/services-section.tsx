@@ -117,7 +117,6 @@ export function ServicesSection() {
                       isHovered ? "opacity-100" : "opacity-0"
                     }`}
                   >
-                    Saber mas <ArrowRight className="h-3.5 w-3.5" />
                   </div>
                 </CardContent>
               </Card>
