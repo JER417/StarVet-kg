@@ -1,125 +1,161 @@
+/* RUTA: components/services-section.tsx */
 "use client"
 
 import { useState } from "react"
 import {
-  Globe,
-  Code,
-  Cog,
-  BarChart3,
-  Palette,
-  Share2,
-  Sparkles,
-  Monitor,
-  ArrowRight,
+  Globe, Code, Cog, Monitor,
+  BarChart3, Palette, Share2, Sparkles,
 } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
 
 const services = [
   {
     icon: Globe,
-    title: "Creación de Paginas Web",
-    description:
-      "Diseñamos y desarrollamos sitios web modernos, responsivos y optimizados para que tu veterinaria destaque en linea.",
+    num: "01",
+    title: "Creación de Páginas Web",
+    desc: "Diseñamos y desarrollamos sitios web modernos, responsivos y optimizados para que tu veterinaria destaque en línea.",
   },
   {
     icon: Code,
+    num: "02",
     title: "Creación de Software Dedicado",
-    description:
-      "Desarrollamos soluciones de software a la medida para gestionar citas, historiales clínicos y mas.",
+    desc: "Desarrollamos soluciones de software a la medida para gestionar citas, historiales clínicos y más.",
   },
   {
     icon: Cog,
+    num: "03",
     title: "Automatización de Procesos",
-    description:
-      "Optimiza tu operación diaria con automatizaciones inteligentes que ahorran tiempo y reducen errores.",
+    desc: "Optimiza tu operación diaria con automatizaciones inteligentes que ahorran tiempo y reducen errores.",
   },
   {
     icon: Monitor,
+    num: "04",
     title: "Software a Medida",
-    description:
-      "Creamos herramientas personalizadas que se adaptan perfectamente a las necesidades de tu clínica.",
+    desc: "Creamos herramientas personalizadas que se adaptan perfectamente a las necesidades de tu clínica.",
   },
   {
     icon: BarChart3,
+    num: "05",
     title: "Marketing Digital",
-    description:
-      "Estrategias de marketing digital enfocadas en atraer y retener clientes para tu veterinaria.",
+    desc: "Estrategias de marketing digital enfocadas en atraer y retener clientes para tu veterinaria.",
   },
   {
     icon: Palette,
+    num: "06",
     title: "Diseño de Publicidad",
-    description:
-      "Creamos piezas publicitarias impactantes que comunican el valor de tus servicios veterinarios.",
+    desc: "Creamos piezas publicitarias impactantes que comunican el valor de tus servicios veterinarios.",
   },
   {
     icon: Share2,
+    num: "07",
     title: "Manejo de Redes Sociales",
-    description:
-      "Gestionamos tus redes sociales para construir una comunidad fiel alrededor de tu marca.",
+    desc: "Gestionamos tus redes sociales para construir una comunidad fiel alrededor de tu marca.",
   },
   {
     icon: Sparkles,
+    num: "08",
     title: "Creación de Marca",
-    description:
-      "Desarrollamos tu identidad de marca completa: logo, paleta de colores, tipografía y guía de estilo.",
+    desc: "Desarrollamos tu identidad de marca completa: logo, paleta de colores, tipografía y guía de estilo.",
   },
 ]
 
 export function ServicesSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [hovered, setHovered] = useState<number | null>(null)
 
   return (
-    <section id="servicios" className="py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="servicios" className="py-24" style={{ background: "#fff" }}>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">
-            Nuestros Servicios
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance">
-            Todo lo que tu veterinaria necesita para crecer
+          <span
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+            style={{ background: "#f3eaff", color: "#7c35cc" }}
+          >
+            ✦ Nuestros Servicios
+          </span>
+          <h2
+            className="font-extrabold tracking-tight mb-4"
+            style={{
+              fontFamily: "var(--font-outfit)",
+              fontSize: "clamp(1.9rem, 4vw, 3rem)",
+              color: "#1a0a2e",
+              lineHeight: 1.1,
+            }}
+          >
+            Todo lo que tu{" "}
+            <span style={{ color: "#7c35cc" }}>veterinaria necesita</span>
           </h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Ofrecemos soluciones integrales de tecnología y marketing diseñadas exclusivamente para clínicas veterinarias.
+          <p style={{ color: "#6b5888", lineHeight: 1.75, fontSize: "1rem" }}>
+            Ofrecemos soluciones integrales de tecnología y marketing diseñadas
+            exclusivamente para clínicas veterinarias.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon
-            const isHovered = hoveredIndex === index
+        {/* Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {services.map((svc, i) => {
+            const Icon = svc.icon
+            const isHov = hovered === i
             return (
-              <Card
-                key={service.title}
-                className={`group relative cursor-pointer transition-all duration-300 border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 ${
-                  isHovered ? "border-primary/30 shadow-lg shadow-primary/5" : ""
-                }`}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+              <div
+                key={svc.num}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
+                className="relative rounded-2xl p-6 transition-all duration-300 cursor-default overflow-hidden"
+                style={{
+                  background:   isHov ? "#fff"     : "#faf8ff",
+                  border:       isHov ? "2px solid #e8d5ff" : "2px solid transparent",
+                  boxShadow:    isHov ? "0 20px 50px rgba(124,53,204,0.12)" : "none",
+                  transform:    isHov ? "translateY(-6px)" : "translateY(0)",
+                }}
               >
-                <CardContent className="p-6">
-                  <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-300 ${
-                      isHovered ? "bg-primary text-primary-foreground" : "bg-secondary text-primary"
-                    }`}
-                  >
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold text-card-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                  <div
-                    className={`mt-4 flex items-center gap-1 text-sm font-medium text-primary transition-opacity duration-300 ${
-                      isHovered ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                  </div>
-                </CardContent>
-              </Card>
+                {/* top accent line */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl transition-transform duration-400 origin-left"
+                  style={{
+                    background: "linear-gradient(to right, #7c35cc, #c084fc)",
+                    transform: isHov ? "scaleX(1)" : "scaleX(0)",
+                  }}
+                />
+
+                {/* Icon */}
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300"
+                  style={{
+                    background: isHov ? "#7c35cc"  : "#f3eaff",
+                    color:      isHov ? "#ffffff"  : "#7c35cc",
+                    boxShadow:  isHov ? "0 8px 20px rgba(124,53,204,0.3)" : "none",
+                  }}
+                >
+                  <Icon className="w-5 h-5" />
+                </div>
+
+                <p
+                  className="text-xs font-bold uppercase tracking-widest mb-2"
+                  style={{ color: "#9f5fe0" }}
+                >
+                  {svc.num}
+                </p>
+                <h3
+                  className="font-bold mb-2 leading-snug"
+                  style={{
+                    fontFamily: "var(--font-outfit)",
+                    fontSize: "1rem",
+                    color: "#1a0a2e",
+                  }}
+                >
+                  {svc.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "0.845rem",
+                    color: "#6b5888",
+                    lineHeight: 1.65,
+                  }}
+                >
+                  {svc.desc}
+                </p>
+              </div>
             )
           })}
         </div>

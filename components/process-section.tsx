@@ -1,76 +1,108 @@
-import { MessageSquare, Search, Lightbulb, Rocket } from "lucide-react"
+/* RUTA: components/process-section.tsx */
+"use client"
 
 const steps = [
   {
-    icon: MessageSquare,
-    step: "01",
+    num: "01",
     title: "Consulta Inicial",
-    description:
-      "Analizamos las necesidades de tu veterinaria y definimos objetivos claros para tu transformación digital.",
+    desc: "Analizamos las necesidades de tu veterinaria y definimos objetivos claros para tu transformación digital.",
   },
   {
-    icon: Search,
-    step: "02",
-    title: "Diagnostico Digital",
-    description:
-      "Evaluamos tu presencia digital actual e identificamos las areas de mayor oportunidad para tu clínica.",
+    num: "02",
+    title: "Diagnóstico Digital",
+    desc: "Evaluamos tu presencia digital actual e identificamos las áreas de mayor oportunidad para tu clínica.",
   },
   {
-    icon: Lightbulb,
-    step: "03",
+    num: "03",
     title: "Estrategia Personalizada",
-    description:
-      "Diseñamos un plan de acción a medida con soluciones especificas para tus metas de crecimiento.",
+    desc: "Diseñamos un plan de acción a medida con soluciones específicas para tus metas de crecimiento.",
   },
   {
-    icon: Rocket,
-    step: "04",
+    num: "04",
     title: "Implementación y Resultados",
-    description:
-      "Ejecutamos la estrategia, medimos resultados y optimizamos continuamente para maximizar tu inversion.",
+    desc: "Ejecutamos la estrategia, medimos resultados y optimizamos continuamente para maximizar tu inversión.",
   },
 ]
 
 export function ProcessSection() {
   return (
-    <section id="proceso" className="py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="proceso" className="py-24" style={{ background: "#1a0a2e" }}>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">
-            Nuestro Proceso
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground text-balance">
-            {"Como transformamos tu veterinaria"}
+          <span
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+            style={{ background: "rgba(255,255,255,0.1)", color: "#b06af5" }}
+          >
+            ✦ Nuestro Proceso
+          </span>
+          <h2
+            className="font-extrabold tracking-tight mb-4"
+            style={{
+              fontFamily: "var(--font-outfit)",
+              fontSize:   "clamp(1.9rem, 4vw, 3rem)",
+              color:      "#fff",
+              lineHeight: 1.1,
+            }}
+          >
+            Cómo transformamos tu{" "}
+            <span style={{ color: "#b06af5" }}>veterinaria</span>
           </h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
+          <p style={{ color: "rgba(255,255,255,0.55)", lineHeight: 1.72 }}>
             Un proceso claro y comprobado para llevar a tu clínica al siguiente nivel digital.
           </p>
         </div>
 
         {/* Steps */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => {
-            const Icon = step.icon
-            return (
-              <div key={step.step} className="relative text-center">
-                {/* Connector line */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-px bg-border" />
-                )}
-                <div className="relative inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground mb-6">
-                  <Icon className="h-7 w-7" />
-                  <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-accent-foreground text-xs font-bold">
-                    {step.step}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">
-                  {step.description}
-                </p>
-              </div>
-            )
-          })}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step) => (
+            <div
+              key={step.num}
+              className="rounded-2xl p-7 transition-all duration-300 group"
+              style={{
+                background:  "rgba(255,255,255,0.05)",
+                border:      "1.5px solid rgba(255,255,255,0.08)",
+              }}
+              onMouseEnter={e => {
+                const el = e.currentTarget as HTMLElement
+                el.style.background   = "rgba(124,53,204,0.15)"
+                el.style.borderColor  = "rgba(176,106,245,0.35)"
+                el.style.transform    = "translateY(-4px)"
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget as HTMLElement
+                el.style.background   = "rgba(255,255,255,0.05)"
+                el.style.borderColor  = "rgba(255,255,255,0.08)"
+                el.style.transform    = "translateY(0)"
+              }}
+            >
+              <span
+                className="block font-extrabold leading-none mb-5"
+                style={{
+                  fontFamily: "var(--font-outfit)",
+                  fontSize:   "3rem",
+                  color:      "#b06af5",
+                  opacity:    0.35,
+                }}
+              >
+                {step.num}
+              </span>
+              <h3
+                className="font-bold mb-3"
+                style={{
+                  fontFamily: "var(--font-outfit)",
+                  fontSize:   "1.1rem",
+                  color:      "#fff",
+                }}
+              >
+                {step.title}
+              </h3>
+              <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.50)", lineHeight: 1.72 }}>
+                {step.desc}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
