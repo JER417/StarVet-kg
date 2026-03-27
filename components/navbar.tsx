@@ -70,6 +70,25 @@ export function Navbar() {
           ))}
           <li>
             <Link
+              href="/login"
+              className="text-sm font-semibold px-5 py-2.5 transition-all duration-200 border-2"
+              style={{
+                color: "#7c35cc",
+                borderColor: "#e8d5ff",
+                borderRadius: "50px",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.background = "#f3eaff"
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.background = "transparent"
+              }}
+            >
+              Iniciar sesión
+            </Link>
+          </li>
+          <li>
+            <Link
               href="#contacto"
               className="text-sm font-semibold text-white px-5 py-2.5 transition-all duration-200"
               style={{
@@ -131,7 +150,15 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <div className="px-4 pt-3">
+          <div className="px-4 pt-3 flex flex-col gap-2">
+            <Link
+              href="/login"
+              onClick={() => setIsOpen(false)}
+              className="block text-center text-sm font-semibold py-3 rounded-full border-2 transition-all"
+              style={{ color: "#7c35cc", borderColor: "#e8d5ff" }}
+            >
+              Iniciar sesión
+            </Link>
             <Link
               href="#contacto"
               onClick={() => setIsOpen(false)}

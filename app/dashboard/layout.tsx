@@ -1,8 +1,8 @@
-// RUTA: app/dashboard/layout.tsx  ← ARCHIVO NUEVO
+// RUTA: app/dashboard/layout.tsx  ← REEMPLAZA el existente (o créalo si no existe)
 
 import { redirect } from "next/navigation"
 import { createServerSupabaseClient } from "@/lib/supabase-server"
-import { DashboardClient } from "../dashboard/dashboard-client"
+import { DashboardSidebar } from "../dashboard/dashboard-sidebar"
 
 export default async function DashboardLayout({
   children,
@@ -14,19 +14,11 @@ export default async function DashboardLayout({
   if (!user) redirect("/login")
 
   return (
-    <div className="flex h-screen overflow-hidden" style={{ background: "#faf8ff" }}>
+    <div className="flex h-screen overflow-hidden" style={{ background: "#faf8ff", fontFamily: "var(--font-jakarta)" }}>
       <DashboardSidebar user={user} />
       <main className="flex-1 overflow-y-auto">
         <div className="p-8">{children}</div>
       </main>
     </div>
   )
-}
-
-// Re-export del sidebar como server component wrapper
-import type { User } from "@supabase/supabase-js"
-import { DashboardClient as Sidebar } from "../dashboard/dashboard-client"
-
-function DashboardSidebar({ user }: { user: User }) {
-  return <Sidebar user={user} />
 }
