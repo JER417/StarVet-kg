@@ -1,4 +1,4 @@
-// RUTA: middleware.ts  ← ARCHIVO NUEVO (raíz del proyecto, junto a package.json)
+// RUTA: middleware.ts  ← REEMPLAZA el existente (raíz del proyecto)
 
 import { createServerClient } from "@supabase/ssr"
 import { NextResponse, type NextRequest } from "next/server"
@@ -27,23 +27,19 @@ export async function middleware(request: NextRequest) {
     }
   )
 
-  // Refresca la sesión si expiró
-  const { data: { user } } = await supabase.auth.getUser()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
 
-  // Rutas protegidas — redirige a /login si no hay sesión
-  const protectedPaths = ["/dashboard"]
-  const isProtected = protectedPaths.some((path) =>
-    request.nextUrl.pathname.startsWith(path)
-  )
-
-  if (isProtected && !user) {
+  // Rutas protegidas → redirige a login si no hay sesión
+  if (request.nextUrl.pathname.startsWith("/dashboard") && !user) {
     const url = request.nextUrl.clone()
     url.pathname = "/login"
     return NextResponse.redirect(url)
   }
 
-  // Si ya tiene sesión y va a /login, manda al dashboard
-  if (user && request.nextUrl.pathname === "/login") {
+  // Si ya tiene sesión y va a /login → manda al dashboard
+  if (request.nextUrl.pathname === "/login" && user) {
     const url = request.nextUrl.clone()
     url.pathname = "/dashboard"
     return NextResponse.redirect(url)
@@ -54,6 +50,7 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|images|api).*)",
+    "/dashboard/:path*",
+    "/login",
   ],
 }
